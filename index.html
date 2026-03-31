@@ -3,57 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edulife Solutions | Operational Digital Systems</title>
-  <meta name="description" content="Edulife Solutions builds professional websites, portals, workflow systems, and automation tools for organisations that need to serve, coordinate, and scale better." />
+  <title>Edulife Solutions | Digital Systems for Service Organisations</title>
+  <meta name="description" content="Edulife Solutions builds websites, portals, and workflow systems for social service, care, training, and nonprofit organisations in Singapore." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
           colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#0f172a',
-              950: '#020617'
-            }
-          },
-          animation: {
-            'fade-up': 'fadeUp 0.6s ease-out forwards',
-            'fade-in': 'fadeIn 0.6s ease-out forwards',
-            'slide-in-right': 'slideInRight 0.5s ease-out forwards',
-            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(24px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' }
-            },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' }
-            },
-            slideInRight: {
-              '0%': { opacity: '0', transform: 'translateX(-16px)' },
-              '100%': { opacity: '1', transform: 'translateX(0)' }
-            },
-            pulseSoft: {
-              '0%, 100%': { opacity: '0.4' },
-              '50%': { opacity: '0.7' }
-            }
+            brand: { 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#111827' },
+            neutral: { 50: '#fafafa', 100: '#f5f5f5', 200: '#e5e5e5', 300: '#d4d4d4', 400: '#a3a3a3', 500: '#737373', 600: '#525252', 700: '#404040', 800: '#262626', 900: '#171717' }
           }
         }
       }
@@ -63,663 +26,475 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
     }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-    .reveal-delay-6 { transition-delay: 0.6s; }
-    .reveal-delay-7 { transition-delay: 0.7s; }
-
-    /* Gradient animation for hero */
-    .hero-gradient {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f172a 50%, #1e3a5f 75%, #0f172a 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Active nav indicator */
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.25s ease; opacity: 0; }
+    .mobile-menu.open { max-height: 400px; opacity: 1; }
     .nav-link { position: relative; }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #2563eb;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after,
-    .nav-link.active::after { width: 100%; }
-
-    /* Card shine on hover */
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px -8px rgba(0,0,0,0.12);
-    }
-
-    /* Smooth mobile menu */
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, opacity 0.3s ease;
-      opacity: 0;
-    }
-    .mobile-menu.open {
-      max-height: 400px;
-      opacity: 1;
-    }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: #2563eb; transition: width 0.25s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
   </style>
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased">
+<body class="bg-white text-neutral-800 font-sans antialiased">
 
-  <!-- Skip to content -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:outline-none">
     Skip to main content
   </a>
 
-  <!-- ===== HEADER ===== -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-lg">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#" class="text-xl font-extrabold tracking-tight text-brand-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">
-        Edulife<span class="text-brand-600">.</span>
-      </a>
-
-      <!-- Desktop nav -->
-      <nav class="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-        <a href="#services" class="nav-link py-1 text-sm font-medium text-slate-600 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Services</a>
-        <a href="#proof" class="nav-link py-1 text-sm font-medium text-slate-600 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Results</a>
-        <a href="#solutions" class="nav-link py-1 text-sm font-medium text-slate-600 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Solutions</a>
-        <a href="#process" class="nav-link py-1 text-sm font-medium text-slate-600 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Process</a>
-        <a href="#about" class="nav-link py-1 text-sm font-medium text-slate-600 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">About</a>
-        <a href="#contact" class="rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-colors">Get in Touch</a>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#" class="text-lg font-bold text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Edulife Solutions</a>
+      <nav class="hidden items-center gap-7 md:flex" aria-label="Main navigation">
+        <a href="#services" class="nav-link py-1 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded transition-colors">Services</a>
+        <a href="#work" class="nav-link py-1 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded transition-colors">Work</a>
+        <a href="#results" class="nav-link py-1 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded transition-colors">Results</a>
+        <a href="#process" class="nav-link py-1 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded transition-colors">Process</a>
+        <a href="#about" class="nav-link py-1 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded transition-colors">About</a>
+        <a href="#contact" class="rounded-md bg-neutral-900 px-4 py-2 text-[13px] font-medium text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-colors">Contact Us</a>
       </nav>
-
-      <!-- Mobile hamburger -->
-      <button id="menu-toggle" class="flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-        <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-        <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      <button id="menu-toggle" class="rounded-md p-2 text-neutral-600 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+        <svg id="ico-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+        <svg id="ico-close" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
     </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu border-t border-slate-100 bg-white px-6 md:hidden">
-      <nav class="flex flex-col gap-1 py-4" aria-label="Mobile navigation">
-        <a href="#services" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">Services</a>
-        <a href="#proof" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">Results</a>
-        <a href="#solutions" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">Solutions</a>
-        <a href="#process" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">Process</a>
-        <a href="#about" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">About</a>
-        <a href="#contact" class="mt-2 rounded-lg bg-brand-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">Get in Touch</a>
+    <div id="mobile-menu" class="mobile-menu border-t border-neutral-100 bg-white px-6 md:hidden">
+      <nav class="flex flex-col gap-1 py-3" aria-label="Mobile navigation">
+        <a href="#services" class="mob-link rounded-md px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">Services</a>
+        <a href="#work" class="mob-link rounded-md px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">Work</a>
+        <a href="#results" class="mob-link rounded-md px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">Results</a>
+        <a href="#process" class="mob-link rounded-md px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">Process</a>
+        <a href="#about" class="mob-link rounded-md px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">About</a>
+        <a href="#contact" class="mt-1 rounded-md bg-neutral-900 px-3 py-2.5 text-center text-sm font-medium text-white hover:bg-neutral-800">Contact Us</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- ===== HERO ===== -->
-    <section class="hero-gradient relative overflow-hidden text-white">
-      <!-- Decorative elements -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-600/10 blur-3xl animate-pulse-soft"></div>
-        <div class="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-blue-500/8 blur-3xl animate-pulse-soft" style="animation-delay: 1.5s"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-brand-500/5 blur-3xl"></div>
-      </div>
-
-      <div class="relative mx-auto max-w-7xl px-6 py-24 md:py-36">
-        <div class="mx-auto max-w-4xl text-center">
-          <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm">
-            <span class="relative flex h-2 w-2">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-green-400"></span>
-            </span>
-            Singapore-based &middot; Serving APAC organisations
-          </div>
-
-          <h1 class="reveal reveal-delay-1 mt-8 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
-            Your team deserves <br class="hidden sm:block" />
-            <span class="bg-gradient-to-r from-blue-300 via-blue-200 to-cyan-200 bg-clip-text text-transparent">digital tools that actually work</span>
+    <!-- HERO -->
+    <section class="border-b border-neutral-100 bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="reveal text-[13px] font-medium uppercase tracking-widest text-neutral-400">Digital Solutions Partner &middot; Singapore</p>
+          <h1 class="reveal reveal-d1 mt-5 text-[2.5rem] font-bold leading-[1.15] tracking-tight text-neutral-900 md:text-[3.25rem]">
+            Websites, portals, and workflow systems for service organisations
           </h1>
-
-          <p class="reveal reveal-delay-2 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-            We build websites, portals, and workflow systems for social service, care, training, and nonprofit organisations — replacing scattered tools with one clean system.
+          <p class="reveal reveal-d2 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500">
+            We help social service agencies, training providers, and nonprofits replace scattered tools with one clean, professional system.
           </p>
-
-          <div class="reveal reveal-delay-3 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="#contact" class="group inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-brand-900 shadow-lg shadow-black/10 transition-all hover:shadow-xl hover:shadow-black/15 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <div class="reveal reveal-d3 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="#contact" class="inline-flex items-center gap-2 rounded-md bg-neutral-900 px-7 py-3 text-sm font-medium text-white shadow-sm hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-colors">
               Get in Touch
-              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
-            <a href="#solutions" class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              See Our Work
+            <a href="#work" class="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-7 py-3 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-colors">
+              View Our Work
             </a>
           </div>
-
-          <p class="reveal reveal-delay-4 mt-10 text-sm text-slate-400">Trusted by social service agencies, training providers, and workforce support organisations across Singapore.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== STATS BAR ===== -->
-    <section class="border-b border-slate-200 bg-slate-50">
-      <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
-        <div class="reveal text-center">
-          <div class="text-3xl font-extrabold text-brand-900 md:text-4xl">25+</div>
-          <p class="mt-1 text-sm font-medium text-slate-500">Projects Delivered</p>
+    <!-- NUMBERS -->
+    <section class="border-b border-neutral-100 bg-neutral-50">
+      <div class="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-neutral-200 md:grid-cols-4">
+        <div class="reveal px-6 py-10 text-center">
+          <div class="text-2xl font-bold text-neutral-900 md:text-3xl">25+</div>
+          <p class="mt-1 text-xs font-medium text-neutral-400">Projects Delivered</p>
         </div>
-        <div class="reveal reveal-delay-1 text-center">
-          <div class="text-3xl font-extrabold text-brand-900 md:text-4xl">10+</div>
-          <p class="mt-1 text-sm font-medium text-slate-500">Organisations Served</p>
+        <div class="reveal reveal-d1 px-6 py-10 text-center">
+          <div class="text-2xl font-bold text-neutral-900 md:text-3xl">10+</div>
+          <p class="mt-1 text-xs font-medium text-neutral-400">Organisations Served</p>
         </div>
-        <div class="reveal reveal-delay-2 text-center">
-          <div class="text-3xl font-extrabold text-brand-900 md:text-4xl">4</div>
-          <p class="mt-1 text-sm font-medium text-slate-500">Sectors Covered</p>
+        <div class="reveal reveal-d2 px-6 py-10 text-center">
+          <div class="text-2xl font-bold text-neutral-900 md:text-3xl">4</div>
+          <p class="mt-1 text-xs font-medium text-neutral-400">Sectors Covered</p>
         </div>
-        <div class="reveal reveal-delay-3 text-center">
-          <div class="text-3xl font-extrabold text-brand-900 md:text-4xl">98%</div>
-          <p class="mt-1 text-sm font-medium text-slate-500">Client Satisfaction</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES ===== -->
-    <section id="services" class="mx-auto max-w-7xl px-6 py-24">
-      <div class="reveal mx-auto max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">What We Build</p>
-        <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-5xl">Five ways we help your organisation go digital</h2>
-        <p class="mt-5 text-lg text-slate-500">From public-facing websites to private internal systems, every solution is built around how your team actually works.</p>
-      </div>
-
-      <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        <!-- Service 1 -->
-        <div class="card-hover reveal rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-brand-600">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Professional Websites</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Corporate sites, programme pages, and service hubs that present your organisation with clarity and credibility.</p>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="card-hover reveal reveal-delay-1 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Landing Pages</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Targeted pages for campaigns, events, recruitment drives, and service launches that convert visitors into action.</p>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="card-hover reveal reveal-delay-2 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Portals & Internal Systems</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Secure, role-based platforms where staff, managers, and clients access what they need — nothing more, nothing less.</p>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="card-hover reveal reveal-delay-3 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Workflow Automation</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Eliminate repetitive admin. Route approvals, trigger notifications, and track progress without manual chasing.</p>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="card-hover reveal reveal-delay-4 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Dashboards & Reporting</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">See what matters at a glance. Management dashboards and structured reports that surface the data you need to act.</p>
+        <div class="reveal reveal-d3 px-6 py-10 text-center">
+          <div class="text-2xl font-bold text-neutral-900 md:text-3xl">98%</div>
+          <p class="mt-1 text-xs font-medium text-neutral-400">Client Satisfaction</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== SOCIAL PROOF / RESULTS ===== -->
-    <section id="proof" class="bg-slate-50">
-      <div class="mx-auto max-w-7xl px-6 py-24">
-        <div class="reveal mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">Proven Results</p>
-          <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-5xl">Organisations trust us to deliver</h2>
-          <p class="mt-5 text-lg text-slate-500">Here is what our clients say about working with Edulife Solutions.</p>
+    <!-- SERVICES -->
+    <section id="services" class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Services</p>
+          <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">What we build</h2>
+          <p class="mt-4 text-base text-neutral-500">Five core service areas designed to help organisations operate better and present themselves professionally.</p>
         </div>
 
-        <!-- Testimonials -->
-        <div class="mt-16 grid gap-8 md:grid-cols-3">
-          <div class="reveal card-hover rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div class="flex gap-1 text-amber-400" aria-label="5 out of 5 stars">
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+        <div class="mt-14 grid gap-px overflow-hidden rounded-xl border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-5">
+          <div class="reveal flex flex-col bg-white p-6">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-neutral-100 text-neutral-600">
+              <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
             </div>
-            <blockquote class="mt-5 text-base leading-relaxed text-slate-600">
-              "Edulife replaced our patchwork of spreadsheets and email chains with a single portal. Our caseworkers save hours every week."
-            </blockquote>
-            <div class="mt-6 flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">SL</div>
-              <div>
-                <p class="text-sm font-semibold text-brand-900">Sarah Lim</p>
-                <p class="text-xs text-slate-500">Programme Director, Social Service Agency</p>
-              </div>
-            </div>
+            <h3 class="mt-4 text-sm font-semibold text-neutral-900">Websites</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Corporate sites and service pages that present your organisation clearly and credibly.</p>
           </div>
-
-          <div class="reveal reveal-delay-1 card-hover rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div class="flex gap-1 text-amber-400" aria-label="5 out of 5 stars">
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          <div class="reveal reveal-d1 flex flex-col bg-white p-6">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-neutral-100 text-neutral-600">
+              <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>
             </div>
-            <blockquote class="mt-5 text-base leading-relaxed text-slate-600">
-              "They understood our training workflows from day one. The assessment platform they built handles 500+ learners seamlessly."
-            </blockquote>
-            <div class="mt-6 flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">RT</div>
-              <div>
-                <p class="text-sm font-semibold text-brand-900">Raymond Tan</p>
-                <p class="text-xs text-slate-500">Head of Learning, Training Provider</p>
-              </div>
-            </div>
+            <h3 class="mt-4 text-sm font-semibold text-neutral-900">Landing Pages</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Targeted pages for campaigns, events, recruitment, and service launches.</p>
           </div>
-
-          <div class="reveal reveal-delay-2 card-hover rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div class="flex gap-1 text-amber-400" aria-label="5 out of 5 stars">
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          <div class="reveal reveal-d2 flex flex-col bg-white p-6">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-neutral-100 text-neutral-600">
+              <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
             </div>
-            <blockquote class="mt-5 text-base leading-relaxed text-slate-600">
-              "We went from five disconnected tools to one EAP portal. The team finally has a single source of truth for all support requests."
-            </blockquote>
-            <div class="mt-6 flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-violet-100 text-sm font-bold text-violet-700">MK</div>
-              <div>
-                <p class="text-sm font-semibold text-brand-900">Michelle Koh</p>
-                <p class="text-xs text-slate-500">Operations Manager, Workforce Support Provider</p>
-              </div>
+            <h3 class="mt-4 text-sm font-semibold text-neutral-900">Portals & Internal Systems</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Secure platforms with role-based access for staff, managers, and clients.</p>
+          </div>
+          <div class="reveal reveal-d3 flex flex-col bg-white p-6">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-neutral-100 text-neutral-600">
+              <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             </div>
+            <h3 class="mt-4 text-sm font-semibold text-neutral-900">Workflow Automation</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Automated approvals, notifications, and task routing that reduce manual work.</p>
+          </div>
+          <div class="reveal reveal-d4 flex flex-col bg-white p-6">
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-neutral-100 text-neutral-600">
+              <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+            </div>
+            <h3 class="mt-4 text-sm font-semibold text-neutral-900">Dashboards & Reporting</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Management dashboards and structured reports for operational visibility.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== SECTORS ===== -->
-    <section class="mx-auto max-w-7xl px-6 py-24">
-      <div class="reveal mx-auto max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">Who We Serve</p>
-        <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-5xl">Built for organisations where trust and clarity matter</h2>
-        <p class="mt-5 text-lg text-slate-500">We specialise in sectors where service delivery, accountability, and internal coordination are not optional.</p>
-      </div>
-
-      <div class="mt-16 grid gap-6 md:grid-cols-2">
-        <div class="reveal card-hover group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-brand-600 transition-colors group-hover:bg-brand-600 group-hover:text-white">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
-          </div>
-          <h3 class="mt-5 text-xl font-bold text-brand-900">Social Service Organisations</h3>
-          <p class="mt-3 text-slate-500 leading-relaxed">Volunteer coordination, intake workflows, programme management, case administration, staff portals, and reporting systems.</p>
+    <!-- SECTORS -->
+    <section class="border-t border-neutral-100 bg-neutral-50">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Sectors</p>
+          <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">Who we work with</h2>
+          <p class="mt-4 text-base text-neutral-500">We specialise in organisations where service delivery, accountability, and coordination are essential.</p>
         </div>
 
-        <div class="reveal reveal-delay-1 card-hover group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-600 group-hover:text-white">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+        <div class="mt-14 grid gap-4 sm:grid-cols-2">
+          <div class="reveal rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Social Service Organisations</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Volunteer coordination, intake workflows, programme management, case administration, and reporting.</p>
           </div>
-          <h3 class="mt-5 text-xl font-bold text-brand-900">Care & Workforce Support</h3>
-          <p class="mt-3 text-slate-500 leading-relaxed">Employee assistance platforms, confidential request flows, service access tools, and structured delivery environments.</p>
-        </div>
-
-        <div class="reveal reveal-delay-2 card-hover group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-50 text-violet-600 transition-colors group-hover:bg-violet-600 group-hover:text-white">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+          <div class="reveal reveal-d1 rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Care & Workforce Support Providers</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Employee assistance platforms, confidential request flows, service tracking, and programme administration.</p>
           </div>
-          <h3 class="mt-5 text-xl font-bold text-brand-900">Training & Education</h3>
-          <p class="mt-3 text-slate-500 leading-relaxed">Learning portals, assessment systems, guided progression workflows, and content delivery platforms that scale with your curriculum.</p>
-        </div>
-
-        <div class="reveal reveal-delay-3 card-hover group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600 transition-colors group-hover:bg-amber-600 group-hover:text-white">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016A3.001 3.001 0 0021 9.349m-18 0a2.999 2.999 0 00.315-1.349V5.25A2.25 2.25 0 015.565 3h12.87a2.25 2.25 0 012.25 2.25v2.75c0 .456-.102.889-.285 1.274" /></svg>
+          <div class="reveal reveal-d2 rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Training & Education Providers</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Learning portals, assessment systems, progression workflows, and content delivery platforms.</p>
           </div>
-          <h3 class="mt-5 text-xl font-bold text-brand-900">Service-Led SMEs & Nonprofits</h3>
-          <p class="mt-3 text-slate-500 leading-relaxed">Professional websites, internal dashboards, admin automation, and digital operational improvements tailored to your budget.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== WHY US ===== -->
-    <section class="hero-gradient relative overflow-hidden text-white">
-      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute top-0 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl"></div>
-      </div>
-      <div class="relative mx-auto max-w-7xl px-6 py-24">
-        <div class="reveal mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-widest text-blue-300">Why Edulife</p>
-          <h2 class="mt-3 text-3xl font-extrabold md:text-5xl">Four reasons teams choose us over generic agencies</h2>
-        </div>
-
-        <div class="mt-16 grid gap-8 md:grid-cols-2">
-          <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/20 text-blue-300">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.384-3.19A.965.965 0 006 11.67V6.83a.965.965 0 00.036-.31l5.384-3.188a.96.96 0 01.958 0l5.384 3.188A.965.965 0 0018 6.83v4.84a.965.965 0 01-.036.31l-5.384 3.19a.96.96 0 01-.958 0zM6.036 6.52l5.384 3.188m0 0l5.384-3.188M11.42 9.708V15.5" /></svg>
-            </div>
-            <h3 class="mt-5 text-xl font-bold text-white">We build for operations, not just appearance</h3>
-            <p class="mt-3 leading-relaxed text-slate-300">Most agencies deliver a pretty front end. We wire up the backend logic, permissions, and workflows your team actually needs to function day-to-day.</p>
-          </div>
-
-          <div class="reveal reveal-delay-1 card-hover rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-300">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-            </div>
-            <h3 class="mt-5 text-xl font-bold text-white">We understand structured service environments</h3>
-            <p class="mt-3 leading-relaxed text-slate-300">Permissions, accountability, audit trails, multi-role access. We have built for environments where getting these wrong has real consequences.</p>
-          </div>
-
-          <div class="reveal reveal-delay-2 card-hover rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/20 text-violet-300">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-            </div>
-            <h3 class="mt-5 text-xl font-bold text-white">We ship fast with AI-assisted development</h3>
-            <p class="mt-3 leading-relaxed text-slate-300">We use modern AI tools to accelerate design and code — so you get working software faster without compromising on quality or custom fit.</p>
-          </div>
-
-          <div class="reveal reveal-delay-3 card-hover rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/20 text-amber-300">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.491 48.491 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.959.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" /></svg>
-            </div>
-            <h3 class="mt-5 text-xl font-bold text-white">We replace chaos with clean systems</h3>
-            <p class="mt-3 leading-relaxed text-slate-300">Scattered spreadsheets, duplicated forms, email-based approvals. We consolidate fragmented processes into one usable platform your whole team adopts.</p>
+          <div class="reveal reveal-d3 rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Service-Led SMEs & Nonprofits</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Professional websites, internal dashboards, admin automation, and digital operational improvements.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== SOLUTIONS ===== -->
-    <section id="solutions" class="mx-auto max-w-7xl px-6 py-24">
-      <div class="reveal mx-auto max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">Our Work</p>
-        <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-5xl">Solutions we have built</h2>
-        <p class="mt-5 text-lg text-slate-500">Real platforms and systems delivered for our clients. Each solves a specific operational challenge.</p>
-      </div>
+    <!-- WORK -->
+    <section id="work" class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Selected Work</p>
+          <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">Solutions we have delivered</h2>
+          <p class="mt-4 text-base text-neutral-500">Platforms and systems built for real organisations. Each addresses a specific operational need.</p>
+        </div>
 
-      <div class="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        <a href="https://icoip-landing.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-brand-700">Social Service</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">ICOIP Platform</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Multi-role governance platform managing workflows, records, training, and coordination for a national social service body.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+        <div class="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <a href="https://icoip-landing.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Social Service</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">ICOIP Platform</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">Governance platform for managing workflows, records, training, and coordination across multiple roles.</p>
+          </a>
 
-        <a href="https://eap-8ck.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-delay-1 card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Workforce Support</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">EAP Platform</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Confidential employee assistance portal with structured support requests, service tracking, and programme administration.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+          <a href="https://eap-8ck.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-d1 group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Workforce Support</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">EAP Platform</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">Employee assistance portal with structured support requests, service tracking, and programme management.</p>
+          </a>
 
-        <a href="https://skillforge-landing.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-delay-2 card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700">Training</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">SkillForge</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Learning delivery platform with guided progression, structured assessments, and analytics for 500+ concurrent learners.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+          <a href="https://skillforge-landing.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-d2 group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Training</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">SkillForge</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">Learning platform with guided progression, structured assessments, and performance analytics.</p>
+          </a>
 
-        <a href="https://worldnews-d72.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-delay-3 card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700">Content Platform</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">WorldNews</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">A smart news platform that turns global updates into clear, fast, and easy daily reading.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+          <a href="https://worldnews-d72.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-d3 group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Content</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">WorldNews</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">News platform that organises global updates into a clear, fast, daily reading experience.</p>
+          </a>
 
-        <a href="https://raw2slides.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">Automation</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Raw2Slides</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">Upload raw files and turn them into clean, professional presentation slides in minutes.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+          <a href="https://raw2slides.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Automation</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Raw2Slides</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">Converts raw files into clean, professional presentation slides in minutes.</p>
+          </a>
 
-        <a href="https://launchpage-apw.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-delay-1 card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-brand-700">Commercial</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">LaunchPage</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">A premium landing page solution for businesses that want a clean, modern, and high-converting online presence.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+          <a href="https://launchpage-apw.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-d1 group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Commercial</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">LaunchPage</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">High-conversion landing pages for product launches and service announcements.</p>
+          </a>
 
-        <a href="https://nearby-d5c.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-delay-2 card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">Community</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Nearby</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">A community platform that helps people connect, discover local opportunities, and engage with trusted networks nearby.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
+          <a href="https://nearby-d5c.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-d2 group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Community</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Nearby</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">Community platform for local discovery, participation, and trusted network engagement.</p>
+          </a>
 
-        <a href="https://wisdom-platform.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-delay-3 card-hover group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700">Knowledge</span>
-            <svg class="h-4 w-4 text-slate-300 transition-transform group-hover:text-brand-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-brand-900">Wisdom Platform</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">A learning and knowledge platform built to make useful insights, lessons, and educational content easier to access.</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition-opacity group-hover:opacity-100">View live demo &rarr;</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ===== MID-PAGE CTA ===== -->
-    <section class="mx-auto max-w-7xl px-6 pb-24">
-      <div class="reveal rounded-3xl bg-gradient-to-br from-brand-900 via-slate-800 to-brand-900 px-8 py-16 text-center text-white shadow-2xl md:px-16">
-        <h2 class="text-3xl font-extrabold md:text-4xl">More than just a website</h2>
-        <p class="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">
-          Your team does not just need a new site. You need a better way to manage enquiries, forms, records, reporting, and service delivery. We build digital systems that fit how your team actually works — not the other way around.
-        </p>
-        <div class="mt-10">
-          <a href="#contact" class="group inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-brand-900 shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-            Let's talk about your workflow
-            <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          <a href="https://wisdom-platform.pages.dev/" target="_blank" rel="noopener noreferrer" class="reveal reveal-d3 group rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 block">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">Knowledge</span>
+              <svg class="h-3.5 w-3.5 text-neutral-300 transition-colors group-hover:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </div>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Wisdom Platform</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-neutral-500">Knowledge delivery system that organises educational content into clear learning pathways.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROCESS ===== -->
-    <section id="process" class="bg-slate-50">
-      <div class="mx-auto max-w-7xl px-6 py-24">
-        <div class="reveal mx-auto max-w-3xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">Our Process</p>
-          <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-5xl">From first call to live system in four steps</h2>
-          <p class="mt-5 text-lg text-slate-500">No bloated timelines. No scope creep. A structured build process focused on getting you a working system.</p>
+    <!-- RESULTS -->
+    <section id="results" class="border-t border-neutral-100 bg-neutral-50">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Results</p>
+          <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">What our clients say</h2>
         </div>
 
-        <div class="mt-16 grid gap-8 md:grid-cols-4">
-          <div class="reveal card-hover rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">01</div>
-            <h3 class="mt-5 text-lg font-bold text-brand-900">Understand</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-500">We map your current workflow, pain points, and what success looks like. Usually a 30-minute call plus a follow-up document.</p>
+        <div class="mt-14 grid gap-4 md:grid-cols-3">
+          <div class="reveal rounded-lg border border-neutral-200 bg-white p-6">
+            <blockquote class="text-sm leading-relaxed text-neutral-600">
+              "Edulife replaced our patchwork of spreadsheets and email chains with a single portal. Our caseworkers save hours every week."
+            </blockquote>
+            <div class="mt-5 border-t border-neutral-100 pt-4">
+              <p class="text-sm font-semibold text-neutral-900">Sarah Lim</p>
+              <p class="text-xs text-neutral-400">Programme Director, Social Service Agency</p>
+            </div>
           </div>
 
-          <div class="reveal reveal-delay-1 card-hover rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">02</div>
-            <h3 class="mt-5 text-lg font-bold text-brand-900">Structure</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-500">We define the architecture, user roles, screens, and data flows. You review a clear plan before a single line of code is written.</p>
+          <div class="reveal reveal-d1 rounded-lg border border-neutral-200 bg-white p-6">
+            <blockquote class="text-sm leading-relaxed text-neutral-600">
+              "They understood our training workflows from day one. The assessment platform handles 500+ learners seamlessly."
+            </blockquote>
+            <div class="mt-5 border-t border-neutral-100 pt-4">
+              <p class="text-sm font-semibold text-neutral-900">Raymond Tan</p>
+              <p class="text-xs text-neutral-400">Head of Learning, Training Provider</p>
+            </div>
           </div>
 
-          <div class="reveal reveal-delay-2 card-hover rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">03</div>
-            <h3 class="mt-5 text-lg font-bold text-brand-900">Build</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-500">We design and develop in iterative sprints. You see working versions early and often — not a big reveal at the end.</p>
+          <div class="reveal reveal-d2 rounded-lg border border-neutral-200 bg-white p-6">
+            <blockquote class="text-sm leading-relaxed text-neutral-600">
+              "We went from five disconnected tools to one EAP portal. The team finally has a single source of truth for all support requests."
+            </blockquote>
+            <div class="mt-5 border-t border-neutral-100 pt-4">
+              <p class="text-sm font-semibold text-neutral-900">Michelle Koh</p>
+              <p class="text-xs text-neutral-400">Operations Manager, Workforce Support Provider</p>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="reveal reveal-delay-3 card-hover rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">04</div>
-            <h3 class="mt-5 text-lg font-bold text-brand-900">Improve</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-500">After launch, we refine based on real usage. Ongoing support and enhancements keep the system evolving with your needs.</p>
+    <!-- WHY US -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Why Edulife</p>
+          <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">What sets us apart</h2>
+        </div>
+
+        <div class="mt-14 grid gap-4 sm:grid-cols-2">
+          <div class="reveal rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Built for operations, not just appearance</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">We deliver working systems with permissions, workflows, and internal logic your team actually needs day-to-day.</p>
+          </div>
+          <div class="reveal reveal-d1 rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Deep experience in structured service environments</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Accountability, audit trails, multi-role access, and compliance. We build for environments where these matter.</p>
+          </div>
+          <div class="reveal reveal-d2 rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Fast, efficient delivery</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">Our development process is optimised for speed. You get working software faster without compromising quality or fit.</p>
+          </div>
+          <div class="reveal reveal-d3 rounded-lg border border-neutral-200 bg-white p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">From scattered tools to one clean system</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">We consolidate spreadsheets, duplicated forms, and email-based approvals into one platform your whole team adopts.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="mx-auto max-w-7xl px-6 py-24">
-      <div class="grid items-start gap-12 md:grid-cols-2">
-        <div class="reveal">
-          <p class="text-sm font-semibold uppercase tracking-widest text-brand-600">About Us</p>
-          <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-5xl">A Singapore-based team that builds what you actually need</h2>
-          <p class="mt-6 text-lg leading-relaxed text-slate-500">
-            Edulife Solutions is a digital solutions partner focused on building professional websites, internal portals, workflow systems, and automation tools for social service, care, training, and service-led organisations.
-          </p>
-          <p class="mt-4 text-lg leading-relaxed text-slate-500">
-            We help teams stop duct-taping processes together with spreadsheets and email. Instead, we build one clean system that handles records, coordination, approvals, and reporting — so your people can focus on the work that matters.
-          </p>
+    <!-- PROCESS -->
+    <section id="process" class="border-t border-neutral-100 bg-neutral-50">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Process</p>
+          <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">How we work</h2>
+          <p class="mt-4 text-base text-neutral-500">A structured four-step process from first conversation to live system.</p>
         </div>
 
-        <div class="reveal reveal-delay-2 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <h3 class="text-xl font-bold text-brand-900">Best fit projects</h3>
-          <ul class="mt-6 space-y-4">
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span class="text-slate-600">Websites for service-led organisations</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span class="text-slate-600">Staff and admin portals</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span class="text-slate-600">Workflow and approval systems</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span class="text-slate-600">Programme and service delivery platforms</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span class="text-slate-600">Ongoing support and digital improvement</span>
-            </li>
-          </ul>
+        <div class="mt-14 grid gap-4 md:grid-cols-4">
+          <div class="reveal rounded-lg border border-neutral-200 bg-white p-6">
+            <span class="text-xs font-semibold text-neutral-400">01</span>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Understand</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">We map your current workflow, identify pain points, and define what success looks like.</p>
+          </div>
+          <div class="reveal reveal-d1 rounded-lg border border-neutral-200 bg-white p-6">
+            <span class="text-xs font-semibold text-neutral-400">02</span>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Plan</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">We define the structure, user roles, and key screens. You review a clear plan before development begins.</p>
+          </div>
+          <div class="reveal reveal-d2 rounded-lg border border-neutral-200 bg-white p-6">
+            <span class="text-xs font-semibold text-neutral-400">03</span>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Build</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">We design and develop in short cycles. You see working versions early and provide feedback along the way.</p>
+          </div>
+          <div class="reveal reveal-d3 rounded-lg border border-neutral-200 bg-white p-6">
+            <span class="text-xs font-semibold text-neutral-400">04</span>
+            <h3 class="mt-3 text-sm font-semibold text-neutral-900">Support</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-neutral-500">After launch, we refine based on real usage and provide ongoing support as your needs evolve.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="bg-brand-900">
-      <div class="mx-auto max-w-7xl px-6 py-24">
-        <div class="grid gap-12 lg:grid-cols-2">
-          <!-- Left: info -->
+    <!-- ABOUT -->
+    <section id="about" class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="grid items-start gap-12 md:grid-cols-2">
           <div class="reveal">
-            <p class="text-sm font-semibold uppercase tracking-widest text-blue-300">Get in Touch</p>
-            <h2 class="mt-3 text-3xl font-extrabold text-white md:text-5xl">Ready to streamline your operations?</h2>
-            <p class="mt-6 text-lg leading-relaxed text-slate-300">
-              Tell us about your current challenges and what you are trying to achieve. We will respond within one working day with an honest assessment of how we can help.
+            <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">About</p>
+            <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">Edulife Solutions</h2>
+            <p class="mt-5 text-base leading-relaxed text-neutral-500">
+              We are a Singapore-based digital solutions partner. We build professional websites, portals, workflow systems, and operational tools for social service, care, training, and service-led organisations.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-neutral-500">
+              Our work helps teams move from scattered manual processes to structured digital systems that handle records, coordination, approvals, and reporting in one place.
+            </p>
+          </div>
+
+          <div class="reveal reveal-d2 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+            <h3 class="text-sm font-semibold text-neutral-900">Best fit projects</h3>
+            <ul class="mt-5 space-y-3">
+              <li class="flex items-start gap-2.5 text-[13px] text-neutral-600">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Websites for service-led organisations
+              </li>
+              <li class="flex items-start gap-2.5 text-[13px] text-neutral-600">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Staff and admin portals
+              </li>
+              <li class="flex items-start gap-2.5 text-[13px] text-neutral-600">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Workflow and approval systems
+              </li>
+              <li class="flex items-start gap-2.5 text-[13px] text-neutral-600">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Programme and service delivery platforms
+              </li>
+              <li class="flex items-start gap-2.5 text-[13px] text-neutral-600">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Ongoing support and improvement
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="border-t border-neutral-100 bg-neutral-50">
+      <div class="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div class="grid gap-12 lg:grid-cols-2">
+          <div class="reveal">
+            <p class="text-[13px] font-medium uppercase tracking-widest text-neutral-400">Contact</p>
+            <h2 class="mt-3 text-2xl font-bold text-neutral-900 md:text-3xl">Start a conversation</h2>
+            <p class="mt-5 text-base leading-relaxed text-neutral-500">
+              Tell us about your current challenges and what you need. We will respond within one working day with an honest assessment of how we can help.
             </p>
 
-            <div class="mt-10 space-y-6">
-              <div class="flex items-center gap-4">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-blue-300">
-                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                </div>
-                <div>
-                  <p class="text-sm font-medium text-slate-400">Email us directly</p>
-                  <a href="mailto:hello@edulifesolutions.com" class="text-base font-semibold text-white hover:text-blue-300 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">hello@edulifesolutions.com</a>
-                </div>
+            <div class="mt-8 space-y-4">
+              <div class="flex items-center gap-3">
+                <svg class="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                <a href="mailto:hello@edulifesolutions.com" class="text-sm font-medium text-neutral-900 hover:text-brand-600 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">hello@edulifesolutions.com</a>
               </div>
-
-              <div class="flex items-center gap-4">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-blue-300">
-                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-                </div>
-                <div>
-                  <p class="text-sm font-medium text-slate-400">Based in</p>
-                  <p class="text-base font-semibold text-white">Singapore</p>
-                </div>
+              <div class="flex items-center gap-3">
+                <svg class="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                <span class="text-sm text-neutral-600">Singapore</span>
               </div>
-
-              <div class="flex items-center gap-4">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-blue-300">
-                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <div>
-                  <p class="text-sm font-medium text-slate-400">Response time</p>
-                  <p class="text-base font-semibold text-white">Within 1 working day</p>
-                </div>
+              <div class="flex items-center gap-3">
+                <svg class="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span class="text-sm text-neutral-600">Response within 1 working day</span>
               </div>
             </div>
           </div>
 
-          <!-- Right: form -->
-          <div class="reveal reveal-delay-2">
-            <form action="https://formspree.io/f/your-form-id" method="POST" class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-              <div class="space-y-5">
+          <div class="reveal reveal-d2">
+            <form action="https://formspree.io/f/your-form-id" method="POST" class="rounded-lg border border-neutral-200 bg-white p-6">
+              <div class="space-y-4">
                 <div>
-                  <label for="name" class="block text-sm font-medium text-slate-300">Full name</label>
+                  <label for="name" class="block text-xs font-medium text-neutral-500">Full name</label>
                   <input type="text" id="name" name="name" required autocomplete="name"
-                    class="mt-1.5 block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-colors" placeholder="Your full name" />
+                    class="mt-1 block w-full rounded-md border border-neutral-200 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600 transition-colors" placeholder="Your full name" />
                 </div>
                 <div>
-                  <label for="email" class="block text-sm font-medium text-slate-300">Email address</label>
+                  <label for="email" class="block text-xs font-medium text-neutral-500">Email address</label>
                   <input type="email" id="email" name="email" required autocomplete="email"
-                    class="mt-1.5 block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-colors" placeholder="you@organisation.com" />
+                    class="mt-1 block w-full rounded-md border border-neutral-200 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600 transition-colors" placeholder="you@organisation.com" />
                 </div>
                 <div>
-                  <label for="org" class="block text-sm font-medium text-slate-300">Organisation</label>
+                  <label for="org" class="block text-xs font-medium text-neutral-500">Organisation</label>
                   <input type="text" id="org" name="organisation" autocomplete="organization"
-                    class="mt-1.5 block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-colors" placeholder="Your organisation name" />
+                    class="mt-1 block w-full rounded-md border border-neutral-200 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600 transition-colors" placeholder="Organisation name" />
                 </div>
                 <div>
-                  <label for="message" class="block text-sm font-medium text-slate-300">Tell us about your project</label>
+                  <label for="message" class="block text-xs font-medium text-neutral-500">Project details</label>
                   <textarea id="message" name="message" rows="4" required
-                    class="mt-1.5 block w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-colors" placeholder="What challenges are you facing? What does your ideal system look like?"></textarea>
+                    class="mt-1 block w-full resize-none rounded-md border border-neutral-200 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600 transition-colors" placeholder="Tell us about your needs and current challenges."></textarea>
                 </div>
               </div>
               <button type="submit"
-                class="mt-6 w-full rounded-lg bg-brand-600 px-6 py-3.5 text-base font-bold text-white shadow-sm transition-all hover:bg-brand-700 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400">
+                class="mt-5 w-full rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-colors">
                 Send Message
               </button>
-              <p class="mt-4 text-center text-xs text-slate-500">We typically respond within 1 working day. No spam, ever.</p>
+              <p class="mt-3 text-center text-xs text-neutral-400">We respond within 1 working day.</p>
             </form>
           </div>
         </div>
@@ -728,102 +503,52 @@
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="border-t border-white/5 bg-brand-950">
-    <div class="mx-auto max-w-7xl px-6 py-12">
+  <!-- FOOTER -->
+  <footer class="border-t border-neutral-200 bg-white">
+    <div class="mx-auto max-w-6xl px-6 py-10">
       <div class="grid gap-8 md:grid-cols-3">
-        <!-- Brand -->
         <div>
-          <p class="text-lg font-extrabold text-white">Edulife<span class="text-brand-400">.</span></p>
-          <p class="mt-3 text-sm leading-relaxed text-slate-400">Professional websites, portals, and workflow systems for organisations that need to operate with clarity, efficiency, and trust.</p>
+          <p class="text-sm font-bold text-neutral-900">Edulife Solutions</p>
+          <p class="mt-2 text-xs leading-relaxed text-neutral-400">Websites, portals, and workflow systems for organisations that need to operate with clarity and efficiency.</p>
         </div>
-
-        <!-- Nav -->
         <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Navigate</h4>
-          <nav class="mt-4 flex flex-col gap-2" aria-label="Footer navigation">
-            <a href="#services" class="text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">Services</a>
-            <a href="#proof" class="text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">Results</a>
-            <a href="#solutions" class="text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">Solutions</a>
-            <a href="#process" class="text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">Process</a>
-            <a href="#about" class="text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">About</a>
-            <a href="#contact" class="text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">Contact</a>
+          <p class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Navigate</p>
+          <nav class="mt-3 flex flex-col gap-1.5" aria-label="Footer navigation">
+            <a href="#services" class="text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Services</a>
+            <a href="#work" class="text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Work</a>
+            <a href="#results" class="text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Results</a>
+            <a href="#process" class="text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">Process</a>
+            <a href="#about" class="text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">About</a>
           </nav>
         </div>
-
-        <!-- Contact -->
         <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Contact</h4>
-          <div class="mt-4 space-y-2">
-            <a href="mailto:hello@edulifesolutions.com" class="block text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded">hello@edulifesolutions.com</a>
-            <p class="text-sm text-slate-400">Singapore</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Contact</p>
+          <div class="mt-3 space-y-1.5">
+            <a href="mailto:hello@edulifesolutions.com" class="block text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 rounded">hello@edulifesolutions.com</a>
+            <p class="text-xs text-neutral-400">Singapore</p>
           </div>
         </div>
       </div>
-
-      <div class="mt-12 border-t border-white/5 pt-8 text-center">
-        <p class="text-xs text-slate-500">&copy; <span id="year"></span> Edulife Solutions. All rights reserved.</p>
+      <div class="mt-8 border-t border-neutral-100 pt-6 text-center">
+        <p class="text-[11px] text-neutral-400">&copy; <span id="yr"></span> Edulife Solutions. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
   <script>
-    // Copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('menu-icon-open');
-    const iconClose = document.getElementById('menu-icon-close');
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-      iconOpen.classList.toggle('hidden', isOpen);
-      iconClose.classList.toggle('hidden', !isOpen);
-    });
-
-    // Close mobile menu on nav link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-      });
-    });
-
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // Active nav link tracking
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-          });
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
-
-    sections.forEach(section => navObserver.observe(section));
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const tog = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iO = document.getElementById('ico-open');
+    const iC = document.getElementById('ico-close');
+    tog.addEventListener('click', () => { const o = menu.classList.toggle('open'); tog.setAttribute('aria-expanded', o); iO.classList.toggle('hidden', o); iC.classList.toggle('hidden', !o); });
+    menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { menu.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); iO.classList.remove('hidden'); iC.classList.add('hidden'); }));
+    const obs = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } }), { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    const secs = document.querySelectorAll('section[id]');
+    const navs = document.querySelectorAll('.nav-link');
+    const nObs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) { const id = en.target.id; navs.forEach(n => n.classList.toggle('active', n.getAttribute('href') === '#' + id)); } }), { threshold: 0.3, rootMargin: '-72px 0px -50% 0px' });
+    secs.forEach(s => nObs.observe(s));
   </script>
 
 </body>
