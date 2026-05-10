@@ -1,4 +1,19 @@
 {
+  "name": "edulife-solutions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Edulife Solutions static site with Cloudflare Pages Functions",
+  "scripts": {
+    "start": "wrangler pages dev . --port 8788",
+    "dev": "wrangler pages dev . --port 8788",
+    "build": "echo \"static site - no build step required\"",
+    "deploy": "wrangler pages deploy .",
+    "test": "echo \"no tests configured\" && exit 0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "devDependencies": {
     "wrangler": "^4.79.0"
   }
