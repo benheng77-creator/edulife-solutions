@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Cloudflare and local configuration
+.wrangler/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.env.example
+
+# Logs and local artifacts
+*.log
+.DS_Store
+Thumbs.db
